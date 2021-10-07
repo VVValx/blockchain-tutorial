@@ -1,7 +1,11 @@
 const BlockChain = require("./classes/BlockChain");
 
-const blockChain = new BlockChain();
-blockChain.addBlock("one");
-blockChain.addBlock("two");
+const chain = new BlockChain();
+chain.addBlock([
+  {
+    id: 1,
+    name: "val",
+  },
+]);
 
-console.log(blockChain.chain);
+console.log(chain);

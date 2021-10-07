@@ -1,16 +1,16 @@
 const Block = require("./Block");
-const random = require("../utils/random");
+const moment = require("moment");
 
 module.exports = class BlockChain {
   constructor() {
-    const genesis = new Block("gen-data", "gen-hash", "gen-lastHash");
+    const genesis = Block.genesis();
     this.chain = [genesis];
   }
 
   addBlock(data) {
-    const lastHash = this.chain[this.chain.length - 1].hash;
-    const hash = random(data + lastHash, 8);
-    const block = new Block(data, hash, lastHash);
+    const lastBlock = this.chain[this.chain.length - 1];
+    const block = Block.mineBlock(lastBlock, data);
+
     this.chain.push(block);
   }
 };
