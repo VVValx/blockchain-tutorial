@@ -1,5 +1,3 @@
-const moment = require("moment");
-
 const GENESIS_DATA = {
   timestamp: 1,
   lastHash: "-----",
